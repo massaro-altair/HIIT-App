@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>HIIT Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="screen-select" class="screen active">
+      <div class="logo">
+        <svg viewBox="0 0 48 48" width="48" height="48">
+          <circle cx="24" cy="24" r="20" fill="none" stroke="url(#g1)" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="100 20"/>
+          <line x1="18" y1="28" x2="24" y2="16" stroke="url(#g1)" stroke-width="3" stroke-linecap="round"/>
+          <line x1="24" y1="16" x2="30" y2="28" stroke="url(#g1)" stroke-width="3" stroke-linecap="round"/>
+          <line x1="20" y1="24" x2="28" y2="24" stroke="url(#g1)" stroke-width="2.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00ff88"/>
+              <stop offset="100%" stop-color="#00ccff"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <h1 class="title">HIIT Timer</h1>
+      <p class="subtitle">Treino Intervalado de Alta Intensidade</p>
+      <div class="workout-cards">
+        <button class="card" data-workout="nivel1">
+          <span class="card-badge">NÍVEL 1</span>
+          <span class="card-label">Iniciante</span>
+          <span class="card-desc">25 min • Intensidade progressiva</span>
+        </button>
+        <button class="card" data-workout="nivel2">
+          <span class="card-badge">NÍVEL 2</span>
+          <span class="card-label">Avançado</span>
+          <span class="card-desc">25 min • Alta intensidade</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="screen-workout" class="screen">
+      <div class="workout-header">
+        <button id="btn-back" class="btn-icon" aria-label="Voltar">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <polyline points="15,5 9,12 15,19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <span id="workout-name-top" class="workout-name-top"></span>
+      </div>
+
+      <div class="progress-ring-container">
+        <svg class="progress-ring" viewBox="0 0 300 300">
+          <circle class="ring-bg" cx="150" cy="150" r="130" fill="none" stroke="#1a1a2e" stroke-width="12"/>
+          <circle class="ring-fg" cx="150" cy="150" r="130" fill="none" stroke="#00ff88" stroke-width="12" stroke-linecap="round" stroke-dasharray="816.81" stroke-dashoffset="0" transform="rotate(-90 150 150)"/>
+        </svg>
+        <div class="ring-center">
+          <div id="timer-display" class="timer-display">25:00</div>
+          <div id="phase-display" class="phase-display">Fácil</div>
+        </div>
+      </div>
+
+      <div class="speed-section">
+        <div class="speed-label">VELOCIDADE</div>
+        <div class="speed-value">
+          <span id="speed-display">5</span>
+          <span class="speed-unit">km/h</span>
+        </div>
+        <div id="speed-range" class="speed-range">5 - 6 km/h</div>
+      </div>
+
+      <div class="workout-footer">
+        <div class="phase-bar">
+          <div class="phase-bar-track">
+            <div id="phase-bar-fill" class="phase-bar-fill" style="width:0%"></div>
+          </div>
+          <div class="phase-bar-labels">
+            <span>0:00</span>
+            <span id="phase-total">25:00</span>
+          </div>
+        </div>
+        <button id="btn-control" class="btn-control">
+          <svg id="icon-play" viewBox="0 0 24 24" width="28" height="28">
+            <polygon points="8,5 19,12 8,19" fill="currentColor"/>
+          </svg>
+          <svg id="icon-pause" viewBox="0 0 24 24" width="28" height="28" style="display:none">
+            <rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/>
+            <rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
